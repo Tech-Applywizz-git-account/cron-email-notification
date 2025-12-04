@@ -449,3 +449,19 @@ def check_all_leads_threshold():
 @app.get("/")
 def health_check():
     return {"status": "ok", "service": "Job Links Threshold Notification API"}
+
+
+# -----------------------
+# Main execution when run as script (for cron jobs)
+# -----------------------
+if __name__ == "__main__":
+    print("🚀 Starting email notification check...")
+    try:
+        result = check_all_leads_threshold()
+        print(f"✅ Execution completed successfully!")
+        print(f"Result: {result}")
+    except Exception as e:
+        print(f"❌ Error occurred: {e}")
+        import traceback
+        traceback.print_exc()
+        exit(1)

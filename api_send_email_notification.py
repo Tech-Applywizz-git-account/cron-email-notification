@@ -1,5 +1,4 @@
 #karmafy/karmafy/api_send_email_notification.py
-
 from fastapi import FastAPI, HTTPException
 from typing import Optional
 import requests
